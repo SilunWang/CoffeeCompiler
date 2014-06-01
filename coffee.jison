@@ -111,31 +111,37 @@ Block
 	;
 
 ExprBlock
-	: 'VARIABLE' '=' ExprBlock
+	: 'VARIABLE' '=' ExprBlock ExprBlock_
 		{		}
-	| ObjBlock
+	| ObjBlock ExprBlock_
 		{		}
-	| ArrayBlock
+	| ArrayBlock ExprBlock_
 		{		}
-	| Const
+	| Const ExprBlock_
 		{		}
-	| 'VARIABLE'
+	| 'VARIABLE' ExprBlock_
 		{		}
-	| ExprBlock '+' ExprBlock
+	;
+
+
+ExprBlock_
+	: '+' ExprBlock ExprBlock_
 		{		}
-	| ExprBlock '-' ExprBlock
+	| '-' ExprBlock ExprBlock_
 		{		}
-	| ExprBlock '**' ExprBlock
+	| '**' ExprBlock ExprBlock_
 		{		}
-	| ExprBlock '\/\/' ExprBlock
+	| '\/\/' ExprBlock ExprBlock_
 		{		}
-	| ExprBlock 'and' ExprBlock
+	| 'and' ExprBlock ExprBlock_
 		{		}
-	| ExprBlock 'or' ExprBlock
+	| 'or' ExprBlock ExprBlock_
 		{		}
-	| ExprBlock '==' ExprBlock
+	| '==' ExprBlock ExprBlock_
 		{		}
-	| ExprBlock '>=' ExprBlock
+	| '>=' ExprBlock ExprBlock_
+		{		}
+	|
 		{		}
 	;
 
