@@ -9,7 +9,7 @@ logical -> and|or|
 comp -> ==|>=
 
 CONST -> num|stirng|boolean|undefined|null
-boolean -> true| yes| on| false| no| off
+boolean -> true|yes|on|false|no|off
 
 
 IFB-> IFT \n(\tB\n)+
