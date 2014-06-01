@@ -70,6 +70,7 @@
 "^"                   return '^'
 "!"                   return '!'
 "%"                   return 'MOD'
+'='					  return '='
 "PI"                  return 'PI'
 
 /lex
