@@ -1,6 +1,6 @@
 S->BS | EPS;
 B->IFB|FORB|EXPB
-B->B|B;
+
 
 EXPB -> v = EXPB
 EXPB -> OBJB|ARRAYB|CONST|v
