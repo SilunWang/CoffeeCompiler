@@ -2,19 +2,19 @@
 %%
 
 //substitute map
-and			return '&&'
+'and'		return '&&'
 '&&'		return '&&'
-or   		return '||'
+'or'   		return '||'
 '||'		return '||'
-is   		return '==='
+'is'   		return '==='
 '=='		return '==='
-isnt 		return '!=='
+'isnt' 		return '!=='
 '!='		return '!=='
-not  		return '!'
-yes  		return 'true'
-no   		return 'false'
-on   		return 'true'
-off  		return 'false'
+'not'  		return '!'
+'yes'  		return 'true'
+'no'   		return 'false'
+'on'   		return 'true'
+'off'  		return 'false'
 
 //punctuation
 '{' 		return 'LEFT_BRACE'
@@ -27,7 +27,7 @@ off  		return 'false'
 ':'			return 'COLON'
 ';'			return 'SEMICOLON'
 
-'\n'    	return 'ENTERS' 
+\n+    	return 'ENTERS' 
 \s+ 		
 
 //^[^\n\s]+	/* skip whitespace */
