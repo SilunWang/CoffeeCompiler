@@ -28,12 +28,12 @@
 ';'			return 'SEMICOLON'
 
 \n+    	return 'ENTERS' 
-\s+ 		
+\s+ 	/* skip whitespace */
 
 //^[^\n\s]+	/* skip whitespace */
 
 //comment 
-^###([^#][\s\S]*?)(?:###[^\n\S]*|(?:###)?$)|^(?:\s*#(?!##[^#]).*)+		return 'COMMENT'
+//^###([^#][\s\S]*?)(?:###[^\n\S]*|(?:###)?$)|^(?:\s*#(?!##[^#]).*)+		return 'COMMENT'
 
 [a-zA-Z][a-zA-Z0-9_]*		return 'VARIABLE' 
 
@@ -91,43 +91,46 @@
 
 coffee
     : S EOF
-        { typeof console !== 'undefined' ? console.log($1) : print($1);
-          return $1; }
+        { return $1; }
     ;
 
 S
 	: Block S
-		{		}
+		{ $$ = $1 + $2 }
 	| 
-		{		}
+		{ $$ = '' }
 	;
 
 Block
 	: IfBlock
-		{		}
+		{ $$ = $1; }
 	| ForBlock
-		{		}
+		{ $$ = $1; }
 	| ExprBlock
-		{		}
+		{ $$ = $1; }
 	;
 
 ExprBlock
-	: 'VARIABLE' '=' ExprBlock ExprBlock_
-		{		}
+	: 'VARIABLE' VarSuffix
+		{ $$ = $1 + $2; }
 	| ObjBlock ExprBlock_
-		{		}
+		{ $$ = $1 + $2; }
 	| ArrayBlock ExprBlock_
-		{		}
+		{ $$ = $1 + $2; }
 	| Const ExprBlock_
-		{		}
-	| 'VARIABLE' ExprBlock_
-		{		}
+		{ $$ = $1 + $2; }
 	;
 
+VarSuffix
+	: '=' ExprBlock ExprBlock_
+		{ $$ = $1 + $2 + $3; }
+	| ExprBlock_
+		{ $$ = $1; }
+	;
 
 ExprBlock_
 	: '+' ExprBlock ExprBlock_
-		{		}
+		{ $$ = $1 + $2; }
 	| '-' ExprBlock ExprBlock_
 		{		}
 	| '**' ExprBlock ExprBlock_
@@ -143,7 +146,7 @@ ExprBlock_
 	| '>=' ExprBlock ExprBlock_
 		{		}
 	|
-		{		}
+		{ $$ = '' }
 	;
 
 Const
