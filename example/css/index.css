@@ -1,0 +1,125 @@
+/** General page styling **/
+  
+html {
+	background-color: #e9e9e9;
+	background-size: 100%;
+}
+
+body {
+	background-size: 100%;
+	font-family:times;
+	text-align: center;
+
+}
+
+h1 {
+	text-align: center;
+	font-family: Broadway BT;
+	font-size: 50px;
+	font-weight: bold;
+	margin: 30px 0 3px 0;
+}
+
+
+p {
+	text-align: center;
+	font-family:times;
+	line-height: 25px;
+	font-size: 20px;
+	color: #777;
+	margin: 0;
+}
+
+#editor { 
+	text-align: center;
+    width: 90%;
+    height: 400px;
+    margin-top: 40px;
+}
+
+#convert-btn {
+	margin-left: 10px;
+	width: 10%;
+	float: left;
+}
+
+#btn {
+	width: 90%;
+	height: 40px;
+	margin-top: 50%;
+}
+
+#coffee-editor {
+	width: 42%;
+	height: 100%;
+	float: left;
+	margin-left: 2%;
+}
+
+#js-editor {
+	width: 45%;
+	height: 100%;
+	float: left;
+}
+
+#coffee-text {
+	width: 100%;
+	height: 90%;
+	font-family: courier;
+	font-size: 16px;
+	resize: none;
+}
+
+#js-text {
+	width: 100%;
+	height: 90%;
+	font-family: courier;
+	font-size: 16px;
+	resize: none;
+}
+
+/* ============================================================================================================================
+== TWITTER
+** ============================================================================================================================ */
+
+.example-twitter {
+  position:relative;
+  padding:15px;
+  margin:100px 0 0.5em;
+  color:#333;
+  background:#FFFF93;
+  /* css3 */
+  -webkit-border-radius:10px;
+  -moz-border-radius:10px;
+  border-radius:10px;
+}
+
+.example-twitter textarea {font-size:28px; line-height:1.25em;}
+
+/* this isn't necessary, just saves me having to edit the HTML of the demo */
+.example-twitter:before {
+  /*content:url(../img/coffee.png);*/
+  position:absolute;
+  top:-60px;
+  left:0;
+  width:155px;
+  height:36px;
+  /* reduce the damage in FF3.0 */
+  display:block;
+}
+
+/* creates the triangle */
+.example-twitter:after {
+  content:"";
+  position:absolute;
+  top:-30px;
+  left:50px;
+  border:15px solid transparent;
+  border-bottom-color:#FFFF93;
+  /* reduce the damage in FF3.0 */
+  display:block;
+  width:0;
+}
+
+/* display of quote author (alternatively use a class on the element following the blockquote) */
+.example-twitter + textarea {padding-left:15px; font:14px Arial, sans-serif;}
