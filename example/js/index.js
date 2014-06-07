@@ -2,5 +2,7 @@
 var coffeeparser = parser;
 
 function exec (input) {
-    return coffeeparser.parse(input);
+	IndentLexer.init(input);
+	var s = IndentLexer.scan();
+    return coffeeparser.parse(s);
 }
