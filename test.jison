@@ -1,4 +1,4 @@
-%lex
+ %lex
 %%
 
 //operator
@@ -72,6 +72,8 @@
 'unless' 	return 'unless'
 'until' 	return 'until'
 
+[a-zA-Z][a-zA-Z0-9_]*\[[a-zA-Z0-9_\'\"]+\]  return 'ARRAY_ELEMENT'
+[a-zA-Z][a-zA-Z0-9_]*\.[a-zA-Z0-9_]+		return 'OBJ_ELEMENT' 
 [a-zA-Z][a-zA-Z0-9_]*		return 'VARIABLE' 
 
 /lex
@@ -122,12 +124,12 @@ ExprBlock
 		{ $$ = $1; }
 	| Const 
 		{ $$ = $1; }
-	| 'VARIABLE' '=' ExprBlock
+	| EXT_VARIABLE '=' ExprBlock
 		{ $$ = $1 + ' ' + $2 + ' ' + $3; }
-	| 'VARIABLE'
+	| EXT_VARIABLE '=' FUNCTION
+		{ $$ = $1 + ' ' + $2 + ' ' + $3; }
+	| EXT_VARIABLE
 		{ $$ = $1; }
-	| 'VARIABLE' '=' FUNCTION
-		{ $$ = $1 + ' ' + $2 + ' ' + $3; }
 	| FUNCTION
 		{ $$ = '(' + $1 + ')'; }
 	| ExprBlock '+' ExprBlock
@@ -145,6 +147,15 @@ ExprBlock
 	| 'break'
 		{ $$ = $1; }
 	| 'continue'
+		{ $$ = $1; }
+	;
+
+EXT_VARIABLE
+	: 'VARIABLE'
+		{ $$ = $1; }
+	| 'ARRAY_ELEMENT'
+		{ $$ = $1; }
+	| 'OBJ_ELEMENT'
 		{ $$ = $1; }
 	;
 
