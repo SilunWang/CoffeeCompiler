@@ -9,6 +9,7 @@
 	<link rel="stylesheet" type="text/css" href="css/index.css">
 	<script src="js/jquery.js" type="text/javascript"></script>
 	<script src="js/Indent.js" type="text/javascript"></script>
+	<script src="js/tabIndent.js"></script>
 </head>
 
 <body>
@@ -26,15 +27,15 @@
 	<div id="editor">
 
 		<div id="coffee-editor">
-			<textarea id="coffee-text"></textarea>
+			<textarea class="tabIndent" id="coffee-text"></textarea>
 		</div>
 
 		<div id="convert-btn">
-			<button id="btn" onclick="compile()">Compile</button>
+			<image src="img/button.png" id="btn" onclick="compile()"></image>
 		</div>
 
 		<div id="js-editor">
-			<textarea id="js-text" readonly="readonly"></textarea>
+			<textarea class="tabIndent" id="js-text" readonly="readonly"></textarea>
 		</div>
 		
 	</div>
@@ -48,6 +49,7 @@
 		};
 
  		$(function(){
+ 			tabIndent.renderAll();
 			$.getScript('js/test.coffee', function(data, textStatus, jqxhr){
 				$("#coffee-text").text(data);
 			});
