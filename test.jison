@@ -72,7 +72,7 @@
 'unless' 	return 'unless'
 'until' 	return 'until'
 
-[a-zA-Z][a-zA-Z0-9_]*\[[a-zA-Z0-9_\'\"]+\]  return 'ARRAY_ELEMENT'
+[a-zA-Z][a-zA-Z0-9_]*\[[a-zA-Z0-9_]+\]      return 'ARRAY_ELEMENT'
 [a-zA-Z][a-zA-Z0-9_]*\.[a-zA-Z0-9_]+		return 'OBJ_ELEMENT' 
 [a-zA-Z][a-zA-Z0-9_]*		return 'VARIABLE' 
 
