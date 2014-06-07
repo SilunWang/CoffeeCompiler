@@ -7,7 +7,7 @@
 \'.*\'				  return 'STRING'
 \*{2}				  return 'POW'
 \*{1}                 return '*'
-#{2}				  return 'INDENT'
+\#{2}				  return 'INDENT'
 "/"                   return '/'
 "-"                   return '-'
 "+"                   return '+'
@@ -45,10 +45,7 @@
 ':'			return 'COLON'
 ';'			return 'SEMICOLON'
 
-//\n+    	return 'ENTERS' 
 [\s\n]+ 	/* skip whitespace */
-
-//^[^\n\s]+	/* skip whitespace */
 
 //comment 
 //^###([^#][\s\S]*?)(?:###[^\n\S]*|(?:###)?$)|^(?:\s*#(?!##[^#]).*)+		return 'COMMENT'
@@ -116,14 +113,14 @@ Block
 	;
 
 ExprBlock
-	: 'VARIABLE' '=' ExprBlock
-		{ $$ = $1 + ' ' + $2 + ' ' + $3; }
-	| ObjBlock 
+	: ObjBlock 
 		{ $$ = $1; }
 	| ArrayBlock 
 		{ $$ = $1; }
 	| Const 
 		{ $$ = $1; }
+	| 'VARIABLE' '=' ExprBlock
+		{ $$ = $1 + ' ' + $2 + ' ' + $3; }
 	| 'VARIABLE'
 		{ $$ = $1; }
 	| ExprBlock '+' ExprBlock
@@ -187,66 +184,48 @@ ObjBlock
 	| 'LEFT_BRACE' 'RIGHT_BRACE'
 		{ $$ = "{}"; }
 	| ObjExpr
-		{ $$ = $1 }
+		{ $$ = $1; }
 	;
 
 ObjExpr
-	: SinLine
-		{		}
-	| MulLine
-		{		}
+	: SinLine 
+		{ $$ = $1; }
+//	| MulLine
+//		{ $$ = $1; }
 	;
 
 SinLine
-	: KeyValues	KeyValueEnd
-		{		}
+	: KeyValueEnd KeyValues
+		{ $$ = $1 + $2; }
 	;
 
 KeyValues
 	: KeyValue KeyValues
-		{		}
+		{ $$ = $1 + $2; }
 	| 
-		{		}
+		{ $$ = ""; }
 	;
 
 KeyValue
-	: AttrKey 'COLON' AttrValue ','
-		{		}
+	: ',' AttrKey 'COLON' AttrValue 
+		{ $$ = $1 + $2 + $3 + $4; }
 	;
 
 KeyValueEnd
 	: AttrKey 'COLON' AttrValue
-		{		}
+		{ $$ = $1 + $2 + $3; }
 	;
 
 AttrKey
 	: 'VARIABLE'
-		{		}
+		{ $$ = $1; }
 	| 'NUMBER'
-		{		}
+		{ $$ = $1; }
 	| 'STRING'
-		{		}
+		{ $$ = $1; }
 	;
 
 AttrValue
 	: ExprBlock
-		{		}
+		{ $$ = $1; }
 	;
-
-MulLine
-	: 'ENTERS' Lines
-		{		}
-	;
-Lines
-	: Line Lines
-		{		}
-	| Line
-		{		}
-	;
-
-Line
-	: 'INDENT' KeyValueEnd 'ENTERS'
-		{		}
-	| 'INDENT' KeyValue 'ENTERS'
-		{		}
-	; 	 
