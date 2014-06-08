@@ -32,7 +32,7 @@ p {
 #editor { 
     width: 90%;
     margin-left: 5%;
-    height: 400px;
+    height: 440px;
     margin-top: 40px;
 }
 
@@ -79,6 +79,10 @@ p {
 	resize: none;
 }
 
+#coffee-BS-text {
+	display: none;
+}
+
 #js-text {
 	width: 100%;
 	height: 90%;
@@ -97,7 +101,15 @@ p {
 #console {
 	width: 50%;
 	margin-left: 25%;
+	margin-top: 10px;
 	margin-bottom: 50px;
+}
+
+.optionbtn {
+	width: 120px;
+	height: 40px;
+	font-family: arial;
+	font-size: 15px;
 }
 
 /* ============================================================================================================================

@@ -12,6 +12,9 @@
 	<script src="js/tabIndent.js"></script>
 	<script src="js/addDeclare.js"></script>
 	<script src="js/format.js"></script>
+	<script type="text/javascript">
+
+	</script>
 </head>
 
 <body>
@@ -24,11 +27,61 @@
 		<p>Beijing, School of Software, Tsinghua University</p>
 		
 	</header>
-
+	<div style="margin-top: 15px;">
+			<button class="optionbtn" onclick="changetoQS()">QuickSort</button>
+			<button class="optionbtn" onclick="changetoBS()">BinarySearch</button>
+	</div>
 	<div id="editor">
-
+		
 		<div id="coffee-editor">
-			<textarea class="tabIndent" id="coffee-text"></textarea>
+			<textarea class="tabIndent" id="coffee-text">
+quicksort = (array, low, high) ->
+	l = low
+	r = high
+	pivot = array[low]
+
+	while l <= r
+		while array[l] < pivot
+			l = l + 1
+		while array[r] > pivot
+			r = r - 1
+
+		if l <= r
+			if l < r
+				tmp = array[l]
+				array[l] = array[r]
+				array[r] = tmp
+			l = l + 1
+			r = r - 1
+
+	if l < high
+		quicksort(array, l, high)
+	if r > low
+		quicksort(array, low, r)
+a = [3,2,45,6,1,666]
+quicksort(a,0,a.length-1)
+a
+</textarea>
+		<textarea class="tabIndent" id="coffee-BS-text">
+testList = [5, 7, 98, 33, 24, 56]
+target = 7
+
+binarySearch = (list, target) ->
+	low = 0
+	high = list.length
+	while low < high
+		mid = (low + high) / 2;
+		val = list[mid]
+		if val is target
+			return "target found at list[" + mid + "]"
+		else if val < target
+			low = mid + 1
+		else
+			high = mid
+		return "sorry, the target not found"
+
+bTest = binarySearch(testList, target)
+</textarea>
 		</div>
 
 		<div id="convert-btn">
@@ -58,13 +111,7 @@
 			var value = eval(result);
 			$("#twitter").html("RESULT: " + value);
 		};
-
- 		$(function(){
- 			tabIndent.renderAll();
-			$.getScript('js/test.coffee', function(data, textStatus, jqxhr){
-				$("#coffee-text").text(data);
-			});
-		});
+		
 	</script>
 
 	<footer>
