@@ -49,7 +49,7 @@ p {
 }
 
 #btn {
-
+	cursor: pointer;
 }
 
 #coffee-editor {
@@ -106,7 +106,7 @@ p {
 
 .example-twitter {
   position:relative;
-  padding:15px;
+  padding:40px;
   margin:25px 0 0.5em;
   color:#333;
   background:#FFFF93;
@@ -116,7 +116,7 @@ p {
   border-radius:10px;
 }
 
-.example-twitter textarea {font-size:28px; line-height:1.25em;}
+.example-twitter p {font-size:28px; font-family: consolas, monospace; font-weight: bold; line-height:1.25em;}
 
 /* this isn't necessary, just saves me having to edit the HTML of the demo */
 .example-twitter:before {
@@ -144,4 +144,4 @@ p {
 }
 
 /* display of quote author (alternatively use a class on the element following the blockquote) */
-.example-twitter + textarea {padding-left:15px; font:14px Arial, sans-serif;}
+.example-twitter + p {padding-left:15px; font:14px Arial, sans-serif;}
