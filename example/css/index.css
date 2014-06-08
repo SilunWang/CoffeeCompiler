@@ -30,14 +30,13 @@ p {
 }
 
 #editor { 
-	text-align: center;
     width: 90%;
+    margin-left: 5%;
     height: 400px;
     margin-top: 40px;
 }
 
 #convert-btn {
-	margin-left: 30px;
 	width: 10%;
 	height: 100%;
 	float: left;
@@ -52,7 +51,6 @@ p {
 	width: 42%;
 	height: 100%;
 	float: left;
-	margin-left: 2%;
 }
 
 #js-editor {

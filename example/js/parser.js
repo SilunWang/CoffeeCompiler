@@ -651,6 +651,8 @@ exports.main = function commonjsMain(args) {
     IndentLexer.init(source);
     var s = IndentLexer.scan();
     var res = exports.parser.parse(s);
+    res = addDeclare(res);
+    res = format(res);
     console.log(res);
     return res;
 };
