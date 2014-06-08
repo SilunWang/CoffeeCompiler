@@ -14,3 +14,8 @@ dependency:
 
 realtime中的parser.js最后需要添加模块依赖的代码./realtime/dependency
 
+问题：
+不支持+= ++
+函数只支持0参数或者两个以上参数，一个会有歧义 急需！
+不支持a.b()函数调用 急需！
+

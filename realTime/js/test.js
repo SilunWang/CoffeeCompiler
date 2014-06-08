@@ -1,5 +1,5 @@
 var testList;
-testList = [9, 2, 3, 7, 88, 45];
+testList = [5, 7, 98, 33, 24, 56];
 var target;
 target = 7;
 var binarySearch;
@@ -62,7 +62,23 @@ quicksort = function(array, low, high) {
         quicksort(array, low, r);
     }
 };
+var copyArray;
+copyArray = function(src, def) {
+    var dst;
+    dst = [];
+    var i;
+    i = 0;
+    var _a;
+    var _len;
+    for (_a = 0, _len = src.length; _a < _len; _a++) {
+        var a;
+        a = src[_a];
+        dst[i] = a;
+        i = i+1;
+    }
+    return dst;
+};
 var sTest;
-sTest = [9, 2, 3, 7, 88, 45];
+sTest = copyArray(testList, 0);
 quicksort(sTest, 0, testList.length-1);
 

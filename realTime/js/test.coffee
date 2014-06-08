@@ -1,4 +1,4 @@
-testList = [9, 2, 3, 7, 88, 45]
+testList = [5, 7, 98, 33, 24, 56]
 target = 7
 
 binarySearch = (list, target) ->
@@ -39,7 +39,15 @@ quicksort = (array, low, high) ->
 	if r > low
 		quicksort(array, low, r)
 
-sTest = [9, 2, 3, 7, 88, 45]
+copyArray = (src, default) ->
+	dst = []
+	i = 0
+	for a in src
+		dst[i] = a
+		i = i + 1
+		return dst
+
+sTest = copyArray(testList)
 quicksort(sTest,0,testList.length-1)
 
 
