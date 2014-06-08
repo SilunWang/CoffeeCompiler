@@ -129,12 +129,10 @@ ExprBlock
 		{ $$ = $1; }
 	| EXT_VARIABLE '=' ExprBlock
 		{ $$ = $1 + ' ' + $2 + ' ' + $3; }
-	| EXT_VARIABLE '=' FUNCTION
-		{ $$ = $1 + ' ' + $2 + ' ' + $3; }
 	| EXT_VARIABLE
 		{ $$ = $1; }
 	| FUNCTION
-		{ $$ = '(' + $1 + ')'; }
+		{ $$ = $1; }
 	| 'VARIABLE' '(' ExprBlocks ')'
 		{ $$ = $1 + $2 + $3 + $4; }
 	| ExprBlock '+' ExprBlock
@@ -245,7 +243,7 @@ ObjExpr
 
 KeyValueEnd
 	: AttrKey 'COLON' AttrValue
-		{ $$ = $1 + $2 + $3; }
+		{ $$ = $1 + ' ' + $2 + ' ' + $3; }
 	;
 
 KeyValues
@@ -257,7 +255,7 @@ KeyValues
 
 KeyValue
 	: ',' KeyValueEnd 
-		{ $$ = $1 + $2; }
+		{ $$ = $1 + ' ' + $2; }
 	;
 
 AttrKey
@@ -369,7 +367,7 @@ VARIABLES_
 
 VARIABLE_
 	: ',' 'VARIABLE'
-		{ $$ = $1 + $2; }
+		{ $$ = $1 + ' ' + $2; }
 	;
 
 ExprBlocks
@@ -388,5 +386,5 @@ ExprBlocks_
 
 ExprBlock_
 	: ',' ExprBlock
-		{ $$ = $1 + $2; }
+		{ $$ = $1 + ' ' + $2; }
 	;
