@@ -37,14 +37,19 @@ p {
 }
 
 #convert-btn {
-	width: 10%;
+	margin-left: 10%;
 	height: 100%;
+	display: table;
 	float: left;
 }
 
+#btn-span {
+	display: table-cell;
+	vertical-align:middle;
+}
+
 #btn {
-	position: relative;
-	margin-top: 70%;
+
 }
 
 #coffee-editor {
@@ -89,6 +94,12 @@ p {
 	resize: none;
 }
 
+#console {
+	width: 50%;
+	margin-left: 25%;
+	margin-bottom: 50px;
+}
+
 /* ============================================================================================================================
 == TWITTER
 ** ============================================================================================================================ */
@@ -96,7 +107,7 @@ p {
 .example-twitter {
   position:relative;
   padding:15px;
-  margin:100px 0 0.5em;
+  margin:25px 0 0.5em;
   color:#333;
   background:#FFFF93;
   /* css3 */
