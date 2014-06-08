@@ -63,6 +63,8 @@
 'break'     return 'break'
 'continue' 	return 'continue'
 'if'		return 'if'
+'elseif'	return 'elseif'
+'else if'	return 'elseif'
 'else'		return 'else'
 'for'		return 'for'
 'while'		return 'while'
@@ -118,6 +120,17 @@ Block
 		{ $$ = $1; }
 	| IfBlock ElseBlock
 		{ $$ = $1 + $2; }
+	| IfBlock ElseIfBlocks
+		{ $$ = $1 + $2; }
+	| IfBlock ElseIfBlocks ElseBlock
+		{ $$ = $1 + $2 + $3; }
+	;
+
+ElseIfBlocks
+	: ElseIfBlock ElseIfBlocks
+		{ $$ = $1 + $2; }
+	| ElseIfBlock
+		{ $$ = $1; }
 	;
 
 ExprBlock
@@ -282,6 +295,18 @@ IfCondition
 		{ $$ = 'if' + '(' + $3 + ')'; }
 	| 'if' ExprBlock
 		{ $$ = 'if' + '(' + $2 + ')';}
+	;
+
+ElseIfBlock
+	: ElseIfCondition LEFT_BRACE Blocks RIGHT_BRACE
+		{ $$ = $1 + ' {' + '\n' + $3 + '}\n'; }
+	;
+
+ElseIfCondition
+	: 'elseif' '(' ExprBlock ')'
+		{ $$ = 'else if' + '(' + $3 + ')'; }
+	| 'elseif' ExprBlock
+		{ $$ = 'else if' + '(' + $2 + ')'; }
 	;
 
 ElseBlock
