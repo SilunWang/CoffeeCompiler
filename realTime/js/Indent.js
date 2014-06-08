@@ -10,6 +10,7 @@ var IndentLexer = {
   },
   getLines: function(){
     this.lines = this.input.split(/\n+/);
+    this.lines.push('');
   },
   scan: function(){
     var result = [];
