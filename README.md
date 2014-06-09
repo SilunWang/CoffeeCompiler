@@ -5,7 +5,7 @@ This is a simplified coffeescript-compiler written in javascript
 
 Our course project in *Architecture of Computer and Network (2)*
 
-&copy;JIANG Lin-Nan, HONG Yu, WANG Si-Lun
+&copy;*JIANG Lin-Nan, HONG Yu, WANG Si-Lun*
 
 ## Dependency
 
