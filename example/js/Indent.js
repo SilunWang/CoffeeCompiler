@@ -71,8 +71,6 @@ if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
   }
 }
 
-module.exports = IndentLexer;
-
 /*
 $(document).ready(function() {
   var content = $('#content').text();

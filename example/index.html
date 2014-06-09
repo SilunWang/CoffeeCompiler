@@ -12,9 +12,6 @@
 	<script src="js/tabIndent.js"></script>
 	<script src="js/addDeclare.js"></script>
 	<script src="js/format.js"></script>
-	<script type="text/javascript">
-
-	</script>
 </head>
 
 <body>
@@ -63,22 +60,22 @@ quicksort(a,0,a.length-1)
 a
 </textarea>
 		<textarea class="tabIndent" id="coffee-BS-text">
-testList = [5, 7, 98, 33, 24, 56]
-target = 7
+testList = [5, 7, 8, 10, 24, 56, 100]
+target = 56
 
 binarySearch = (list, target) ->
 	low = 0
-	high = list.length
-	while low < high
+	high = list.length - 1
+	while low <= high
 		mid = (low + high) / 2;
 		val = list[mid]
 		if val is target
-			return "target found at list[" + mid + "]"
+			return "Target found at list[" + mid + "]"
 		else if val < target
 			low = mid + 1
 		else
-			high = mid
-		return "sorry, the target not found"
+			high = mid - 1
+	return "Sorry, target not found"
 
 bTest = binarySearch(testList, target)
 </textarea>
@@ -105,15 +102,10 @@ bTest = binarySearch(testList, target)
 	<script src="js/parser.js" type="text/javascript"></script>
 	<script src="js/index.js" type="text/javascript"></script>
 	<script type="text/javascript">
-		function compile () {
-			var result = exec($("#coffee-text").val());
-			$("#js-text").text(result);
-			var value = eval(result);
-			$("#twitter").html("RESULT: " + value);
-		};
-		
+		$(function(){
+   			tabIndent.renderAll();
+  		});
 	</script>
-
 	<footer>
 		<p>Contact us: (+86)18810660040</p>
 		<p><a href="mailto:badjoker@163.com">Email: badjoker@163.com</a></p>

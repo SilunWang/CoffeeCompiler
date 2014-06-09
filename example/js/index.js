@@ -1,16 +1,25 @@
 // index.js
 var coffeeparser = parser;
-var QScode = $("#coffee-text").text();
-var BScode = $("#coffee-BS-text").text();
+var QScode = $("#coffee-text").val();
+var BScode = $("#coffee-BS-text").val();
+
 function exec (input) {
 	IndentLexer.init(input);
 	var s = IndentLexer.scan();
     return format(addDeclare(coffeeparser.parse(s)));
 };
-changetoBS = function() {
-	$("#coffee-text").text(BScode);
+
+function changetoBS() {
+	$("#coffee-text").val(BScode);
 };
 
-changetoQS = function() {
-	$("#coffee-text").text(QScode);
-}
+function changetoQS() {
+	$("#coffee-text").val(QScode);
+};
+
+function compile () {
+	var result = exec($("#coffee-text").val());
+	$("#js-text").text(result);
+	var value = eval(result);
+	$("#twitter").html("RESULT: " + value);
+};
