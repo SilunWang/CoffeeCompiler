@@ -1,7 +1,8 @@
 CoffeeCompiler
 ==============
 
-[pic]: /example/img/coffee.png
+[pic]: ./example/img/coffee.png
+
 This is a simplified coffeescript-compiler written in javascript
 
 Our course project in *Architecture of Computer and Network (2)*
