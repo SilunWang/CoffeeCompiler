@@ -19,9 +19,9 @@ $ npm install jison -g
 ```
 
 ## Usage
-根目录下运行：
+parser.jison为词法语法文件，若有变更请进入根目录下运行：
 ```shell
-jison parser.jison
+$ jison parser.jison
 ```
 将parser.jison编译生成parser.js
 
