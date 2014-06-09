@@ -9,11 +9,11 @@ Our course project in *Architecture of Computer and Network (2)*
 
 ## Dependency
 
-|**Python Watchdog**|
+**Python Watchdog**
 ```shell
 $ pip install watchdog
 ```
-|**Jison**|
+**Jison**
 ```shell
 $ npm install jison -g
 ```
