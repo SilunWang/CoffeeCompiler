@@ -14,9 +14,10 @@ function addDeclare(src) {
 		'null',
 		'this',
 		'in'
-	]
+	];
 
-	var variableRegex = /^[a-zA-Z_][a-zA-Z0-9_]*/
+	var variableRegex = /^[a-zA-Z_][a-zA-Z0-9_]*/;
+	var objRegex = /^[a-zA-Z_][a-zA-Z0-9_]*\.[a-zA-Z_][a-zA-Z0-9_]*/;
 
 	var existsAll = [];
 
@@ -33,7 +34,8 @@ function addDeclare(src) {
 				existsFrame = existsAll.pop();
 			}
 			var str = variableRegex.exec(src);
-			if (str != null && str.length != 0) {
+			var strobj = objRegex.exec(src);
+			if (str != null && str.length != 0 && (strobj == null || strobj.length == 0)) {
 				str = str[0];
 				src = src.substr(str.length, src.length - str.length);
 				var ch = getNextChar(src);
@@ -56,6 +58,11 @@ function addDeclare(src) {
 					existsFrame.push(str);
 				}
 				dest = dest + str;
+			}
+			else if (strobj != null && strobj.length != 0) {
+				strobj = strobj[0];
+				src = src.substr(strobj.length, src.length - strobj.length);
+				dest = dest + strobj;
 			}
 			else {
 				dest = dest + src[0];

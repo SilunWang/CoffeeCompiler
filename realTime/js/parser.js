@@ -533,99 +533,99 @@ case 17:return 79
 break;
 case 18:return 45
 break;
-case 19:return 46
+case 19:return 34
 break;
-case 20:return 46
+case 20:return 32
 break;
-case 21:return 26
+case 21:return 31
 break;
-case 22:return 33
+case 22:return '^'
 break;
-case 23:return 34
+case 23:return 27
 break;
-case 24:return 32
+case 24:return 'MOD'
 break;
-case 25:return 31
+case 25:return 18
 break;
-case 26:return '^'
+case 26:return 'PI'
 break;
-case 27:return 27
+case 27:return 5
 break;
-case 28:return 'MOD'
+case 28:return 57
 break;
-case 29:return 18
+case 29:return 59
 break;
-case 30:return 'PI'
+case 30:return 52
 break;
-case 31:return 5
+case 31:return 54
 break;
-case 32:return 57
+case 32:return 21
 break;
-case 33:return 59
+case 33:return 23
 break;
-case 34:return 52
+case 34:return 56
 break;
-case 35:return 54
+case 35:return 63
 break;
-case 36:return 21
+case 36:/* skip whitespace */
 break;
-case 37:return 23
+case 37:/* skip whitespace */
 break;
-case 38:return 56
+case 38:return 'this'
 break;
-case 39:return 63
+case 39:return 77
 break;
-case 40:/* skip whitespace */
+case 40:return 76
 break;
-case 41:/* skip whitespace */
+case 41:return 28
 break;
-case 42:return 'this'
+case 42:return 29
 break;
-case 43:return 77
+case 43:return 30
 break;
-case 44:return 76
+case 44:return 68
 break;
-case 45:return 28
+case 45:return 70
 break;
-case 46:return 29
+case 46:return 70
 break;
-case 47:return 30
+case 47:return 71
 break;
-case 48:return 68
+case 48:return 75
 break;
-case 49:return 70
+case 49:return 74
 break;
-case 50:return 70
+case 50:return 50
 break;
-case 51:return 71
+case 51:return 51
 break;
-case 52:return 75
+case 52:return 49
 break;
-case 53:return 74
+case 53:return 48
 break;
-case 54:return 50
+case 54:return 'then'
 break;
-case 55:return 51
+case 55:return 'unless'
 break;
-case 56:return 49
+case 56:return 'until'
 break;
-case 57:return 48
+case 57:return 44
 break;
-case 58:return 'then'
+case 58:return 24 
 break;
-case 59:return 'unless'
+case 59:return 20 
 break;
-case 60:return 'until'
+case 60:return 46
 break;
-case 61:return 44
+case 61:return 46
 break;
-case 62:return 24 
+case 62:return 26
 break;
-case 63:return 20 
+case 63:return 33
 break;
 }
 },
-rules: [/^(?:and\b)/,/^(?:&&)/,/^(?:or\b)/,/^(?:\|\|)/,/^(?:is\b)/,/^(?:==)/,/^(?:isnt\b)/,/^(?:!=)/,/^(?:not\b)/,/^(?:>=)/,/^(?:<=)/,/^(?:<)/,/^(?:>)/,/^(?:yes\b)/,/^(?:no\b)/,/^(?:on\b)/,/^(?:off\b)/,/^(?:->)/,/^(?:[0-9]+(\.[0-9]+)?\b)/,/^(?:".*")/,/^(?:'.*')/,/^(?:\*{2})/,/^(?:\*{1})/,/^(?:\/)/,/^(?:-)/,/^(?:\+)/,/^(?:\^)/,/^(?:!)/,/^(?:%)/,/^(?:=)/,/^(?:PI\b)/,/^(?:$)/,/^(?:\{)/,/^(?:\})/,/^(?:\[)/,/^(?:\])/,/^(?:\()/,/^(?:\))/,/^(?:,)/,/^(?::)/,/^(?:;)/,/^(?:[\s\n]+)/,/^(?:this\b)/,/^(?:in\b)/,/^(?:of\b)/,/^(?:return\b)/,/^(?:break\b)/,/^(?:continue\b)/,/^(?:if\b)/,/^(?:elseif\b)/,/^(?:else if\b)/,/^(?:else\b)/,/^(?:for\b)/,/^(?:while\b)/,/^(?:true\b)/,/^(?:false\b)/,/^(?:null\b)/,/^(?:undefined\b)/,/^(?:then\b)/,/^(?:unless\b)/,/^(?:until\b)/,/^(?:[a-zA-Z_][a-zA-Z0-9_]*\[[a-zA-Z0-9_]+\])/,/^(?:[a-zA-Z_][a-zA-Z0-9_]*\.[a-zA-Z0-9_]+)/,/^(?:[a-zA-Z_][a-zA-Z0-9_]*)/],
+rules: [/^(?:and\b)/,/^(?:&&)/,/^(?:or\b)/,/^(?:\|\|)/,/^(?:is\b)/,/^(?:==)/,/^(?:isnt\b)/,/^(?:!=)/,/^(?:not\b)/,/^(?:>=)/,/^(?:<=)/,/^(?:<)/,/^(?:>)/,/^(?:yes\b)/,/^(?:no\b)/,/^(?:on\b)/,/^(?:off\b)/,/^(?:->)/,/^(?:[0-9]+(\.[0-9]+)?\b)/,/^(?:\/)/,/^(?:-)/,/^(?:\+)/,/^(?:\^)/,/^(?:!)/,/^(?:%)/,/^(?:=)/,/^(?:PI\b)/,/^(?:$)/,/^(?:\{)/,/^(?:\})/,/^(?:\[)/,/^(?:\])/,/^(?:\()/,/^(?:\))/,/^(?:,)/,/^(?::)/,/^(?:;)/,/^(?:[\s\n]+)/,/^(?:this\b)/,/^(?:in\b)/,/^(?:of\b)/,/^(?:return\b)/,/^(?:break\b)/,/^(?:continue\b)/,/^(?:if\b)/,/^(?:elseif\b)/,/^(?:else if\b)/,/^(?:else\b)/,/^(?:for\b)/,/^(?:while\b)/,/^(?:true\b)/,/^(?:false\b)/,/^(?:null\b)/,/^(?:undefined\b)/,/^(?:then\b)/,/^(?:unless\b)/,/^(?:until\b)/,/^(?:[a-zA-Z_$][a-zA-Z0-9_]*\[.+\])/,/^(?:[a-zA-Z_$][a-zA-Z0-9_]*\.[a-zA-Z0-9_]+)/,/^(?:[a-zA-Z_$][a-zA-Z0-9_]*)/,/^(?:".*")/,/^(?:'.*')/,/^(?:\*{2})/,/^(?:\*{1})/],
 conditions: {"INITIAL":{"rules":[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63],"inclusive":true}}
 };
 return lexer;
@@ -637,7 +637,6 @@ function Parser () {
 Parser.prototype = parser;parser.Parser = Parser;
 return new Parser;
 })();
-
 
 var IndentLexer = require('./Indent');
 var addDeclare = require('./addDeclare');

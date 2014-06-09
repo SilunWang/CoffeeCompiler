@@ -23,10 +23,6 @@
 //operator
 '->'				  return '->'
 [0-9]+(\.[0-9]+)?\b   return 'NUMBER'
-\".*\"				  return 'STRING'
-\'.*\'				  return 'STRING'
-\*{2}				  return 'POW'
-\*{1}                 return '*'
 "/"                   return '/'
 "-"                   return '-'
 "+"                   return '+'
@@ -78,9 +74,14 @@
 'unless' 	return 'unless'
 'until' 	return 'until'
 
-[a-zA-Z_][a-zA-Z0-9_]*\[[a-zA-Z0-9_]+\]      return 'ARRAY_ELEMENT'
-[a-zA-Z_][a-zA-Z0-9_]*\.[a-zA-Z0-9_]+		return 'OBJ_ELEMENT' 
-[a-zA-Z_][a-zA-Z0-9_]*		return 'VARIABLE' 
+[a-zA-Z_$][a-zA-Z0-9_]*\[.+\]      return 'ARRAY_ELEMENT'
+[a-zA-Z_$][a-zA-Z0-9_]*\.[a-zA-Z0-9_]+		return 'OBJ_ELEMENT' 
+[a-zA-Z_$][a-zA-Z0-9_]*		return 'VARIABLE' 
+
+\".*\"				  return 'STRING'
+\'.*\'				  return 'STRING'
+\*{2}				  return 'POW'
+\*{1}                 return '*'
 
 /lex
 
