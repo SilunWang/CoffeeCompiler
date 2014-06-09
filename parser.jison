@@ -148,31 +148,36 @@ ExprBlock
 		{ $$ = $1; }
 	| 'VARIABLE' '(' ExprBlocks ')'
 		{ $$ = $1 + $2 + $3 + $4; }
-	| ExprBlock '+' ExprBlock
-		{ $$ = $1 + $2 + $3; }
-	| ExprBlock '-' ExprBlock
-		{ $$ = $1 + $2 + $3; }
-	| ExprBlock '*' ExprBlock
-		{ $$ = $1 + $2 + $3; }
-	| ExprBlock '/' ExprBlock
-		{ $$ = $1 + $2 + $3; }
-	| ExprBlock CMP ExprBlock
-		{ $$ = $1 + $2 + $3; }
-	| ExprBlock '&&' ExprBlock
-		{ $$ = $1 + $2 + $3; }
-	| ExprBlock '||' ExprBlock
-		{ $$ = $1 + $2 + $3; }
-	| '(' ExprBlock ')'
-		{ $$ = $1 + $2 + $3; }
-	| '!' ExprBlock
-		{ $$ = $1 + $2; }
+	| 'OBJ_ELEMENT' '(' ExprBlocks ')'
+		{ $$ = $1 + $2 + $3 + $4; }
+	| ExprBlock BINARY_RELATION ExprBlock
+		{ $$ = $1 + ' ' + $2 + ' ' + $3; }
 	| ExprBlock 'POW' ExprBlock
 		{ $$ = 'Math.pow(' + $1 + ', ' + $3 + ')'; }
+	| '!' ExprBlock
+		{ $$ = $1 + $2; }
 	| 'return' ExprBlock
 		{ $$ = $1 + ' ' + $2; }
 	| 'break'
 		{ $$ = $1; }
 	| 'continue'
+		{ $$ = $1; }
+	;
+
+BINARY_RELATION
+	: '+'
+		{ $$ = $1; }
+	| '-'
+		{ $$ = $1; }
+	| '*'
+		{ $$ = $1; }
+	| '/'
+		{ $$ = $1; }
+	| '&&'
+		{ $$ = $1; }
+	| '||'
+		{ $$ = $1; }
+	| 'CMP'
 		{ $$ = $1; }
 	;
 
@@ -292,9 +297,9 @@ IfBlock
 
 IfCondition
 	: 'if' '(' ExprBlock ')'
-		{ $$ = 'if' + '(' + $3 + ')'; }
+		{ $$ = 'if' + ' (' + $3 + ')'; }
 	| 'if' ExprBlock
-		{ $$ = 'if' + '(' + $2 + ')';}
+		{ $$ = 'if' + ' (' + $2 + ')';}
 	;
 
 ElseIfBlock
@@ -304,9 +309,9 @@ ElseIfBlock
 
 ElseIfCondition
 	: 'elseif' '(' ExprBlock ')'
-		{ $$ = 'else if' + '(' + $3 + ')'; }
+		{ $$ = 'else if' + ' (' + $3 + ')'; }
 	| 'elseif' ExprBlock
-		{ $$ = 'else if' + '(' + $2 + ')'; }
+		{ $$ = 'else if' + ' (' + $2 + ')'; }
 	;
 
 ElseBlock
@@ -333,9 +338,9 @@ WhileBlock
 
 WhileCondition
 	: 'while' '(' ExprBlock ')'
-		{ $$ = 'while' + '(' + $3 + ')'; }
+		{ $$ = 'while' + ' (' + $3 + ')'; }
 	| 'while' ExprBlock
-		{ $$ = 'while' + '(' + $2 + ')';}
+		{ $$ = 'while' + ' (' + $2 + ')';}
 	;
 
 ForCondition
