@@ -67,7 +67,7 @@ binarySearch = (list, target) ->
 	low = 0
 	high = list.length - 1
 	while low <= high
-		mid = (low + high) / 2;
+		mid = low / 2 + high / 2;
 		val = list[mid]
 		if val is target
 			return "Target found at list[" + mid + "]"

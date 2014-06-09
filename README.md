@@ -1,6 +1,7 @@
 CoffeeCompiler
 ==============
 
+[pic]: /example/img/coffee.png
 This is a simplified coffeescript-compiler written in javascript
 
 Our course project in *Architecture of Computer and Network (2)*
@@ -33,8 +34,5 @@ realtime中的`parser.js`最后需要添加模块依赖的代码`./realtime/depe
 
 ## Seeking Solutions
 不支持+= ++
-
-函数只支持0参数或者两个以上参数，一个会有歧义 急需！
-
-不支持a.b()函数调用 急需！
+不支持(a+b)
 
