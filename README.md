@@ -50,7 +50,6 @@ $ jison parser.jison
 ```shell
 ./watch.sh
 ```
-realtime中的`parser.js`最后需要添加模块依赖的代码`./realtime/dependency`
 
 ## Seeking Solutions
 不支持+= ++
