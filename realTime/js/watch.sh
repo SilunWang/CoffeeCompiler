@@ -2,5 +2,5 @@
 watchmedo shell-command \
     --patterns="*.coffee" \
     --recursive \
-    --command='node parser.js test.coffee > test.js' \
+    --command='node entry.js test.coffee > test.js' \
     .

@@ -180,7 +180,7 @@ case 48: this.$ = $$[$0];
 break;
 case 49: this.$ = 'true'; 
 break;
-case 50: this.$ = 'false';  
+case 50: this.$ = 'false';	
 break;
 case 51: this.$ = $$[$0-1] + $$[$0]; 
 break;
@@ -247,32 +247,32 @@ break;
 case 82: this.$ = 'while' + ' (' + $$[$0] + ')';
 break;
 case 83: 
-            this.$ = '_ref = ' + $$[$0] + '\n' + 
-                 'for (' + $$[$0-4] + ' in _ref) {' + '\n' +
-                 $$[$0-2] + ' = _ref[' + $$[$0-4] + ']' + ';\n';
-        
+			this.$ = '_ref = ' + $$[$0] + '\n' + 
+		         'for (' + $$[$0-4] + ' in _ref) {' + '\n' +
+		         $$[$0-2] + ' = _ref[' + $$[$0-4] + ']' + ';\n';
+		
 break;
 case 84: 
-            this.$ = 'for (' + $$[$0-4] + ' in ' + $$[$0] + ') {' + '\n' +
-                 $$[$0-2] + ' = ' + $$[$0] + '[' + $$[$0-4] + ']' + ';\n';
-        
+			this.$ = 'for (' + $$[$0-4] + ' in ' + $$[$0] + ') {' + '\n' +
+		         $$[$0-2] + ' = ' + $$[$0] + '[' + $$[$0-4] + ']' + ';\n';
+		
 break;
 case 85: this.$ = 'for (' + $$[$0-2]  + ' in ' + $$[$0] + ') {' + '\n'; 
 break;
 case 86: this.$ = 'for (' + $$[$0-2]  + ' in ' + $$[$0] + ') {' + '\n'; 
 break;
 case 87:
-            this.$ = '_ref = ' + $$[$0] + '\n' +
-                 'for (_' + $$[$0-2] + ' = 0, _len = _ref.length; _' + 
-                 $$[$0-2] + ' < _len; _' + $$[$0-2] + '++) {' + '\n' +
-                 $$[$0-2] + ' = _ref[_' + $$[$0-2] + ']' + ';\n';
-        
+			this.$ = '_ref = ' + $$[$0] + '\n' +
+			     'for (_' + $$[$0-2] + ' = 0, _len = _ref.length; _' + 
+				 $$[$0-2] + ' < _len; _' + $$[$0-2] + '++) {' + '\n' +
+				 $$[$0-2] + ' = _ref[_' + $$[$0-2] + ']' + ';\n';
+		
 break;
 case 88:
-            this.$ = 'for (_' + $$[$0-2] + ' = 0, _len = ' + $$[$0] + '.length; _' + 
-                 $$[$0-2] + ' < _len; _' + $$[$0-2] + '++) {' + '\n' +
-                 $$[$0-2] + ' = ' + $$[$0] + '[_' + $$[$0-2] + ']' + ';\n';
-        
+			this.$ = 'for (_' + $$[$0-2] + ' = 0, _len = ' + $$[$0] + '.length; _' + 
+				 $$[$0-2] + ' < _len; _' + $$[$0-2] + '++) {' + '\n' +
+				 $$[$0-2] + ' = ' + $$[$0] + '[_' + $$[$0-2] + ']' + ';\n';
+		
 break;
 case 89: this.$ = 'function(' + $$[$0-5] + ') {' + '\n' + $$[$0-1] + '}'; 
 break;
@@ -911,27 +911,17 @@ return new Parser;
 })();
 
 
-var IndentLexer = require('./Indent');
-var addDeclare = require('./addDeclare');
-var format = require('./format')
-
 if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
 exports.parser = parser;
 exports.Parser = parser.Parser;
-exports.parse = function () { return final.parse.apply(final, arguments); };
+exports.parse = function () { return parser.parse.apply(parser, arguments); };
 exports.main = function commonjsMain(args) {
     if (!args[1]) {
         console.log('Usage: '+args[0]+' FILE');
         process.exit(1);
     }
     var source = require('fs').readFileSync(require('path').normalize(args[1]), "utf8");
-    IndentLexer.init(source);
-    var s = IndentLexer.scan();
-    var res = exports.parser.parse(s);
-    res = addDeclare(res);
-    res = format(res);
-    console.log(res);
-    return res;
+    return exports.parser.parse(source);
 };
 if (typeof module !== 'undefined' && require.main === module) {
   exports.main(process.argv.slice(1));
