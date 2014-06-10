@@ -209,6 +209,8 @@ EXT_VARIABLE
 Const
 	: 'NUMBER'
 		{ $$ = $1; }
+	| '-' 'NUMBER'
+		{ $$ = $1 + $2; }
 	| 'STRING'
 		{ $$ = $1; }
 	| bool
@@ -281,6 +283,10 @@ AttrKey
 	: 'VARIABLE'
 		{ $$ = $1; }
 	| 'NUMBER'
+		{ $$ = $1; }
+	| '-' 'NUMBER'
+		{ $$ = $1 + $2; }
+	| bool
 		{ $$ = $1; }
 	| 'STRING'
 		{ $$ = $1; }

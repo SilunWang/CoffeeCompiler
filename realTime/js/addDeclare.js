@@ -109,3 +109,5 @@ function addDeclare(src) {
 	return process(src);
 
 };
+
+module.exports = addDeclare;

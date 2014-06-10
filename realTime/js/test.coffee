@@ -1,26 +1,26 @@
-testList = [5, 7, 98, 33, 24, 56]
+testList = [5, 160, 7, 98, 0, -33, 24, 56]
 target = 7
 
 binarySearch = (list, target) ->
 	low = 0
 	high = list.length
 	while low < high
-		mid = (low + high) / 2;
+		mid = low + high;
+		mid = parseInt(mid / 2);
 		val = list[mid]
 		if val is target
-			return "target found at list[" + mid + "]"
+			return "target " + target + " found at sorted list[" + mid + "]"
 		else if val < target
 			low = mid + 1
 		else
 			high = mid
-		return "sorry, the target not found"
-
-bTest = binarySearch(testList, target)
+	return "sorry, the target not found"
 
 quicksort = (array, low, high) ->
 	l = low
 	r = high
-	mid = (low + high)/2
+	mid = low + high;
+	mid = parseInt(mid / 2);
 	pivot = array[low]
 	while(l <= r)
 		while(array[l] < pivot)
@@ -39,15 +39,9 @@ quicksort = (array, low, high) ->
 	if r > low
 		quicksort(array, low, r)
 
-copyArray = (src, default) ->
-	dst = []
-	i = 0
-	for a in src
-		dst[i] = a
-		i = i + 1
-		return dst
+sTest = testList.slice(0)
 
-sTest = copyArray(testList)
 quicksort(sTest,0,testList.length-1)
+bTest = binarySearch(sTest, target)
 
 
