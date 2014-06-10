@@ -1,7 +1,7 @@
 var IndentLexer = require('./Indent');
 var addDeclare = require('./addDeclare');
 var format = require('./format')
-var parser = require('./parser').parser;
+var parser = require('../../parser').parser;
 
 if (typeof require !== 'undefined' && typeof exports !== 'undefined') {
 	exports.main = function commonjsMain(args) {

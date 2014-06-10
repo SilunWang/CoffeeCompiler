@@ -18,7 +18,10 @@ function changetoQS() {
 };
 
 function compile () {
-	var result = exec($("#coffee-text").val());
+	try
+		var result = exec($("#coffee-text").val());		
+	catch(err)
+		alert(err);
 	$("#js-text").text(result);
 	var value = eval(result);
 	$("#twitter").html("RESULT: " + value);
