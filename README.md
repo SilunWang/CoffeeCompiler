@@ -49,9 +49,9 @@ $ jison parser.jison
 
 ## Display
 
-Linux下，您可以进入`./realTime`目录观察coffee实时生成js（需保持Terminal打开）
+Linux下，您可以进入`./realTime`目录输入下面命令，观察coffee实时生成js（需保持Terminal打开）
 ```shell
-./watch.sh
+$ ./watch.sh
 ```
 Windows下，您可以进入`./example`目录打开index.html网页，实时编译coffeescript语句
 
