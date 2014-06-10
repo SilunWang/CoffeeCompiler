@@ -40,16 +40,20 @@ $ npm install jison -g
 ```
 
 ## Usage
-`parser.jison`为词法语法文件，若有变更请进入根目录下运行：
+`./parser.jison`为词法语法文件，若有变更请进入根目录下运行：
 ```shell
 $ jison parser.jison
 ```
-将`parser.jison`编译生成`parser.js`
+将`./parser.jison`编译生成`./parser.js`
+在windows下，您可以访问 http://zaach.github.io/jison/try/ 在线编译并download `parser.js`
 
-进入`./realTime`目录观察coffee实时生成js（需保持Terminal打开）
+## Display
+
+Linux下，您可以进入`./realTime`目录观察coffee实时生成js（需保持Terminal打开）
 ```shell
 ./watch.sh
 ```
+Windows下，您可以进入`./example`目录打开index.html网页，实时编译coffeescript语句
 
 ## Seeking Solutions
 不支持+= ++
