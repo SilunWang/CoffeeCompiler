@@ -18,10 +18,12 @@ function changetoQS() {
 };
 
 function compile () {
-	try
+	try{
 		var result = exec($("#coffee-text").val());		
-	catch(err)
+	}
+	catch(err){
 		alert(err);
+	}
 	$("#js-text").text(result);
 	var value = eval(result);
 	$("#twitter").html("RESULT: " + value);
