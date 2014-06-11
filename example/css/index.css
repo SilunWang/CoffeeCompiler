@@ -32,8 +32,8 @@ p {
 #editor { 
     width: 90%;
     margin-left: 5%;
-    height: 440px;
-    margin-top: 40px;
+    height: 400px;
+    margin-top: 20px;
 }
 
 #convert-btn {
@@ -67,7 +67,7 @@ p {
 #coffee-text {
 	width: 100%;
 	height: 90%;
-	font-size: 16px;
+	font-size: 22px;
 	margin: 0 auto;
 	border: 2px solid #666;
 	padding: 12px;
@@ -86,7 +86,7 @@ p {
 #js-text {
 	width: 100%;
 	height: 90%;
-	font-size: 16px;
+	font-size: 22px;
 	margin: 0 auto;
 	border: 2px solid #666;
 	padding: 12px;
